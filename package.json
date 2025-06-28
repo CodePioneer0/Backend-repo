@@ -1,0 +1,15 @@
+{
+  "name": "learning-backend",
+  "version": "1.0.0",
+  "description": "\"Learning advance backend\"",
+  "keywords": [
+    "\"backend\""
+  ],
+  "license": "ISC",
+  "author": "\"Sayak Sen\"",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
