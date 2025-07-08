@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 const userSchema = new mongoose.Schema({
     username:{
         type : String,
@@ -48,6 +49,9 @@ userSchema.pre('save', async function(next) {
     next();
 });
 userSchema.methods.isPasswordCorrect = async function(candidatePassword) {
+    if(!candidatePassword || !this.password) {
+        throw new Error("Password and hash are required");
+    }
     return await bcrypt.compare(candidatePassword, this.password);
 }
 userSchema.methods.generateAccessToken = function() {
